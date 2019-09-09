@@ -7,7 +7,8 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { UserListComponent } from './user-list/user-list.component';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -15,12 +16,12 @@ import { HttpClient } from 'selenium-webdriver/http';
     UserCreateComponent,
     UserDetailsComponent,
     UserUpdateComponent,
-    UserListComponent
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClient
+    HttpClientModule
 
   ],
   providers: [],
