@@ -3,10 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserCreateComponent } from './user-create/user-create.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserCreateComponent,
+    UserDetailsComponent,
+    UserUpdateComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
