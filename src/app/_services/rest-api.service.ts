@@ -2,13 +2,13 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { User } from "../_modules/user";
-import { catchError } from "rxjs/operators";
+import { catchError, retry } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
 })
 export class RestApiService {
-  restAPI = "http://localhost:3000";
+  baseUrl = "http://localhost:3000";
   errorMessage = "";
 
   constructor(private http: HttpClient) {}
@@ -20,18 +20,18 @@ export class RestApiService {
   };
   //get mothod => fetch users list
   getUsers(): Observable<User> {
-    return this.http.get<User>(this.restAPI + "/users");
+    return this.http.get<User>(this.baseUrl + "/users");
   }
   // get(id) method => fetch user id
   getUser(id): Observable<User> {
     return this.http
-      .get<User>(this.restAPI + "/users" + id)
+      .get<User>(this.baseUrl + "/users" + id)
       .pipe(catchError(this.handleError));
   }
   createUser(user): Observable<User> {
     return this.http
       .post<User>(
-        this.restAPI + "/users",
+        this.baseUrl + "/users",
         JSON.stringify(user),
         this.httpOption
       )
@@ -40,14 +40,14 @@ export class RestApiService {
   updateUser(id, user): Observable<User> {
     return this.http
       .put<User>(
-        this.restAPI + "/users" + id,
+        this.baseUrl + "/users" + id,
         JSON.stringify(user),
         this.httpOption
       )
       .pipe(catchError(this.handleError));
   }
-  deleteUser(id){
-    return this.http.delete<User>(this.restAPI + '/users', this.httpOption)
+  deleteUser(id) {
+    return this.http.delete<User>(this.baseUrl + "/users", this.httpOption);
   }
   handleError(error) {
     let errorMessage;

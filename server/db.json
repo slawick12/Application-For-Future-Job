@@ -1,18 +1,28 @@
 {
-    "users": [{
+  "users": [
+    {
       "id": 1,
       "name": "ASAP",
       "email": "rocky@gmail.com",
       "phone": "123-123-123"
-    }, {
+    },
+    {
       "id": 2,
       "name": "50 Cent",
       "email": "black-star@gmail.com",
       "phone": "123-123-124"
-    }, {
-        "id": 3,
-        "name": "Post malone",
-        "email": "black_in_white@mcu.com",
-        "phone": "001-123-4568"
-      }]
-  }
+    },
+    {
+      "id": 3,
+      "name": "Post malone",
+      "email": "black_in_white@mcu.com",
+      "phone": "001-123-4568"
+    },
+    {
+      "name": "slawick",
+      "email": "yaschenko.slawick12@gmail.com",
+      "phone": "1234567",
+      "id": 4
+    }
+  ]
+}
