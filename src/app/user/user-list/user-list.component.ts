@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { RestApiService } from "../_services/rest-api.service";
+import { RestApiService } from 'src/app/_services/rest-api.service';
+
 
 @Component({
   selector: "app-user-list",

@@ -3,104 +3,19 @@
     {
       "id": 1,
       "name": "ASAP",
+      "surname": "Rocky",
+      "city": "krakow",
+      "country": "Poland",
       "email": "rocky@gmail.com",
       "phone": "123-123-123"
     },
     {
-      "id": 2,
-      "name": "50 Cent",
-      "email": "black-star@gmail.com",
-      "phone": "123-123-124"
-    },
-    {
-      "id": 3,
-      "name": "Post malone",
-      "email": "black_in_white@mcu.com",
-      "phone": "001-123-4568"
-    },
-    {
       "name": "slawick",
-      "email": "slawick",
-      "phone": "12313",
-      "id": 4
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": 0,
-      "id": 5
-    },
-    {
-      "name": "slawick",
-      "email": "salwick",
-      "phone": "123123",
-      "id": 6
-    },
-    {
-      "name": "slawick",
-      "email": "salwick",
-      "phone": "123123",
-      "id": 7
-    },
-    {
-      "name": "salwick",
-      "email": "12311",
-      "phone": "023123",
-      "id": 8
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": 0,
-      "id": 9
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": 0,
-      "id": 10
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": 0,
-      "id": 11
-    },
-    {
-      "name": "adsa",
-      "email": "dasda",
-      "phone": "0sd",
-      "id": 12
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": 0,
-      "id": 13
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": 0,
-      "id": 14
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": 0,
-      "id": 15
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": 0,
-      "id": 16
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": 0,
-      "id": 17
+      "surname": "iashchenko",
+      "city": "krakow",
+      "email": "slawick@gmail.com",
+      "country": "polska",
+      "id": 2
     }
   ]
 }

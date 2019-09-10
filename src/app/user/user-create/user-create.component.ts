@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { RestApiService } from "../_services/rest-api.service";
 import { Router } from "@angular/router";
-import { resolve } from "q";
-import { AlertifyService } from "../_services/alertify.service";
+import { RestApiService } from 'src/app/_services/rest-api.service';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: "app-user-create",
@@ -10,7 +9,7 @@ import { AlertifyService } from "../_services/alertify.service";
   styleUrls: ["./user-create.component.css"]
 })
 export class UserCreateComponent implements OnInit {
-  @Input() userDetails = { name: "", email: "", phone: 0 };
+  @Input() userDetails = { name: "",surname:"", city:"", email: "", country: "" };
 
   constructor(
     private restApi: RestApiService,
@@ -24,12 +23,12 @@ export class UserCreateComponent implements OnInit {
     this.restApi.createUser(this.userDetails).subscribe(
       () => {
         this.alertify.success("Create user");
+        this.router.navigate(["/user-list"]);
       },
       () => {
-        ()=>{
-          this.alertify.error("There are some problem")
-        }
-        this.router.navigate(["/user-list"]);
+        () => {
+          this.alertify.error("There are some problem");
+        };
       }
     );
   }

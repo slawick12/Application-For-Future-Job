@@ -1,8 +1,11 @@
 export class User {
     id: string;
     name: string;
+    surname:string;
+    city:string;
+    country:string;
     email: string;
-    phone: string;
+    password: string;
     role: string;
     token?: string;
 }
