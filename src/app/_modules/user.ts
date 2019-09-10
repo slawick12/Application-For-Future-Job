@@ -3,5 +3,7 @@ export class User {
     name: string;
     email: string;
     phone: string;
+    role: string;
+    token?: string;
 }
 

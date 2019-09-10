@@ -6,10 +6,10 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 
 
-const routes: Routes = [
-  { path: "", pathMatch:'full', redirectTo:'user-create'},
+export const routes: Routes = [
+  { path: "**", pathMatch:'full', redirectTo:'create-user'},
   {path: "create-user", component: UserCreateComponent},
-  {path: 'upadte-user', component: UserUpdateComponent},
+  {path: 'user-update', component: UserUpdateComponent},
   {path: 'user-details/:id', component: UserDetailsComponent},
   {path: 'user-list', component: UserListComponent}
 ];
