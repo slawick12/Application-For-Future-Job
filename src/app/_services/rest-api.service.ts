@@ -10,6 +10,7 @@ import { catchError, retry } from "rxjs/operators";
 export class RestApiService {
   baseUrl = "http://localhost:3000";
   errorMessage = "";
+  
 
   constructor(private http: HttpClient) {}
 

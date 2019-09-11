@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
-import { RestApiService } from 'src/app/_services/rest-api.service';
-import { AlertifyService } from 'src/app/_services/alertify.service';
+import { RestApiService } from "src/app/_services/rest-api.service";
+import { AlertifyService } from "src/app/_services/alertify.service";
 
 @Component({
   selector: "app-user-create",
@@ -9,7 +9,13 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
   styleUrls: ["./user-create.component.css"]
 })
 export class UserCreateComponent implements OnInit {
-  @Input() userDetails = { name: "",surname:"", city:"", email: "", country: "" };
+  @Input() userDetails = {
+    name: "",
+    surname: "",
+    city: "",
+    email: "",
+    country: ""
+  };
 
   constructor(
     private restApi: RestApiService,

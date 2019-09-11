@@ -1,1 +1,23 @@
-<p>user-update works!</p>
+<div class="container custom-container">
+        <div class="col-md-12">
+          
+          <h3 class="mb-3 text-center">Update Employee</h3>
+      
+          <div class="form-group">
+            <input type="text" [(ngModel)]="UserData.name" class="form-control" placeholder="Name">
+          </div>
+      
+          <div class="form-group">
+            <input type="text" [(ngModel)]="UserData.surname" class="form-control" placeholder="Surname">
+          </div>
+      
+          <div class="form-group">
+            <input type="text" [(ngModel)]="UserData.city" class="form-control" placeholder="City">
+          </div>
+      
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" (click)="updateUser()">Update Employee</button>
+          </div>
+          
+        </div>
+      </div>

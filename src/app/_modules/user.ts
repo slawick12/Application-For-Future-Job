@@ -5,8 +5,6 @@ export class User {
     city:string;
     country:string;
     email: string;
-    password: string;
-    role: string;
-    token?: string;
+    role:{}
 }
 

@@ -22,4 +22,12 @@ export class UserListComponent implements OnInit {
       this.User = data;
     });
   }
+  deleteUser(id){
+    if (window.confirm('Are you sure, you want to delete?')){
+      this.restApi.deleteUser(id).subscribe(data => {
+        this.getListOfUsers()
+      })
+    }
+  }
 }
+
