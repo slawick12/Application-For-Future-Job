@@ -32,6 +32,52 @@
       "email": "auishd@gmail.com",
       "country": "poland",
       "id": 4
+    },
+    {
+      "name": "slawick",
+      "surname": "iaschenko",
+      "city": "krakow",
+      "email": "yasc12@gmail.com",
+      "country": "poland",
+      "password": "",
+      "id": 5
+    },
+    {
+      "name": "",
+      "surname": "",
+      "city": "",
+      "email": "",
+      "country": "",
+      "password": "",
+      "id": 6
+    },
+    {
+      "name": "",
+      "surname": "",
+      "city": "",
+      "email": "",
+      "country": "",
+      "password": "",
+      "id": 7
+    },
+    {
+      "name": "",
+      "surname": "",
+      "city": "",
+      "email": "",
+      "country": "",
+      "password": "",
+      "id": 8
+    },
+    {
+      "name": "",
+      "surname": "",
+      "city": "",
+      "email": "",
+      "country": "",
+      "password": "",
+      "id": 9
     }
-  ]
+  ],
+  "auth": {}
 }

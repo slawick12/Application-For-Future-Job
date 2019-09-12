@@ -19,13 +19,13 @@ export class SignInComponent implements OnInit {
   errorMessage: string;
   ngOnInit() {
     if(this.authService.isLoggedIn())
-    this.router.navigateByUrl("/userprofile")
+    this.router.navigateByUrl("/users")
   }
 
   onSubmit(form: NgForm) {
-    this.authService.login(form.value).subscribe(res => {
+    this.authService.SignIn(form.value).subscribe(res => {
       this.authService.setToken(res["token"]);
-      this.router.navigateByUrl("user-list");
+      this.router.navigateByUrl("users");
     },
     erro =>{
       this.alertify.error("Something went wrong");
