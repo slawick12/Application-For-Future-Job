@@ -1,24 +1,33 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot
+} from "@angular/router";
 import { AuthService } from "../_services/auth.service";
 import { Router } from "@angular/router";
+import { AlertifyService } from "../_services/alertify.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthGuard implements CanActivate {
-
-  constructor(private userService : AuthService,private router : Router){}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private alertifyService: AlertifyService
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
-      if (!this.userService.isLoggedIn()) {
-        this.router.navigateByUrl('/login');
-        this.userService.deleteToken();
-        return false;
-      }
+    state: RouterStateSnapshot
+  ): boolean {
+    if (!this.authService.isLoggedIn()) {
+      this.alertifyService.warning("You have no permission to visit this page");
+      this.router.navigateByUrl("/login");
+      this.router.navigate([""]);
+      return false;
+    }
     return true;
   }
 }

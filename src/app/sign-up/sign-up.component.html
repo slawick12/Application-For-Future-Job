@@ -18,14 +18,14 @@
       <input type="text" class="form-control" [(ngModel)]="userDetails.email " placeholder="E-mail">
     </div>
     <div class="form-group">
-      <input type="text"  class="form-control"[ngModel]="userDetails.password" 
-        placeholder="Password" >
-
-        <input type="button" name="password" class="btn btn-success" value="Generate" (click)="generate()" tabindex="2">
+      <input type="text" class="form-control" [ngModel]="userDetails.password" placeholder="Password">
+      <input type="button" name="password" class="btn btn-success" value="Generate" (click)="generate()" tabindex="2">
     </div>
 
     <div class="form-group">
       <button class="btn btn-success" (click)="tryRegister()">Create User</button>
+      <div (click)="authWithGoogle()" class="btn btn-danger">Create with Google
+      </div>
     </div>
   </div>
 </div>
@@ -49,7 +49,7 @@
       </form>
     </div>
   </div> -->
-  <!-- <div class="row">
+<!-- <div class="row">
     <div class="col-md-4 col-md-offset-4">
       <button type="button" class="btn btn-primary btn-block" (click)="tryFacebookLogin()">Register with Facebook</button>
     </div>
@@ -64,9 +64,10 @@
       <button type="button" class="btn btn-info btn-block" (click)="tryTwitterLogin()">Register with Twitter</button>
     </div>
   </div> -->
-  <!-- <div class="row">
+<!-- <div class="row">
     <div class="col-md-4 col-md-offset-4">
       <p>Already have an account? <a href="/login">Login</a></p>
     </div>
   </div>
 </div> -->
+

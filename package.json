@@ -26,6 +26,7 @@
     "angular-jwt-auth": "^4.0.13",
     "bootstrap": "^4.3.1",
     "firebase": "^6.6.0",
+    "firebase-admin": "^8.5.0",
     "jwthelper": "0.0.4",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
