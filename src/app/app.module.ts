@@ -11,6 +11,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AlertifyService } from "./_services/alertify.service";
 import { AuthService } from "./_services/auth.service";
 import { UserService } from './_services/user.service';
+import {BsDropdownModule } from "ngx-bootstrap";
+ import { AgmCoreModule } from '@agm/core';
 
 import { UserCreateComponent } from "./user/user-create/user-create.component";
 import { UserDetailsComponent } from "./user/user-details/user-details.component";
@@ -20,6 +22,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserHelper } from './Dtos/user.helper';
 import { StartAuthguard } from './guard/startAuth.guard';
 import { AuthGuard } from './guard/auth.guard';
+import { NavbarComponent } from './navbar/navbar.component';
+import { WeatherComponent } from './weather/weather.component';
+import { WeatherService } from './_services/weather.service';
 
 @NgModule({
    declarations: [
@@ -28,7 +33,10 @@ import { AuthGuard } from './guard/auth.guard';
       UserDetailsComponent,
       UserUpdateComponent,
       UserListComponent,
-      SignUpComponent
+      SignUpComponent,
+      NavbarComponent,
+      WeatherComponent,
+
    ],
    imports: [
       BrowserModule,
@@ -36,18 +44,25 @@ import { AuthGuard } from './guard/auth.guard';
       HttpClientModule,
       FormsModule,
       ReactiveFormsModule,
+      BsDropdownModule.forRoot(),
       AngularFireModule.initializeApp(environment.firebaseConfig),
-      AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-      AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+      AngularFirestoreModule,
+      //importsfirebase/firestore,
+      AngularFireAuthModule,
+      //importsfirebase/auth,
+      AgmCoreModule.forRoot({
+         apiKey: 'AIzaSyB3JRtwW1rFF6vaWIIIestjYyetTzTqrtA'
+       }),
    ],
    providers: [
-      //provide
-      AlertifyService,
+      //provide\nAlertifyService,
       AuthService,
       UserService,
       UserHelper,
       AuthGuard,
-      StartAuthguard
+      StartAuthguard,
+      WeatherService,
+      AlertifyService
    ],
    bootstrap: [
       AppComponent

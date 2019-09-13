@@ -7,13 +7,10 @@ import {
   Validators,
   FormControl
 } from "@angular/forms";
-import { RestApiService } from "../_services/rest-api.service";
 import { AlertifyService } from "../_services/alertify.service";
 import { Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/auth";
-import * as firebase from "firebase";
 import { throwError, from, Observable } from "rxjs";
-import { User } from "../_modules/user";
 import { AngularFirestore } from "@angular/fire/firestore";
 
 @Component({

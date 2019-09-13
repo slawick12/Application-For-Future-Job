@@ -14,19 +14,10 @@ import { UserHelper } from "../Dtos/user.helper";
   providedIn: "root"
 })
 export class AuthService {
-  createNewUser: User;
-  baseUrl = "http://localhost:3000";
   decodedToken: any;
   private jwtHelper: JwtHelperService = new JwtHelperService();
 
-  httpOption = {
-    headers: new HttpHeaders({
-      "Content-Type": "application/json"
-    })
-  };
-
   constructor(
-    private http: HttpClient,
     private authServiceFirebase: AngularFireAuth,
     private userService: UserService,
     private router: Router,
@@ -79,13 +70,13 @@ export class AuthService {
     if (this.isLoggedIn()) {
       this.userService.getUser(user_id).subscribe(data => {
         if (data) {
-          this.router.navigate(["/user-list"]);
+          this.router.navigate(["/weather"]);
         } else {
           this.userService.setUser(
             user_id,
             this.userHelper.initializeNewUser(obj, this.decodedToken)
           );
-          this.router.navigate(["/user-list"]);
+          this.router.navigate(["/weather"]);
         }
       });
     }

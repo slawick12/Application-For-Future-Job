@@ -4,7 +4,6 @@ import {
     RouterStateSnapshot,
     Router
   } from '@angular/router';
-  import { AlertifyService } from '../_services/alertify.service';
   import { AuthService } from '../_services/auth.service';
   import { Injectable } from '@angular/core';
   
@@ -21,7 +20,7 @@ import {
       state: RouterStateSnapshot
     ): boolean {
       if (this.authService.isLoggedIn()) {
-        this.routeSerivce.navigate(['/user-list']);
+        this.routeSerivce.navigateByUrl('/weather');
         return false;
       }
       return true;

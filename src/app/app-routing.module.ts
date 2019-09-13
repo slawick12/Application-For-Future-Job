@@ -7,10 +7,10 @@ import { UserListComponent } from "./user/user-list/user-list.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 import { AuthGuard } from "./guard/auth.guard";
 import { StartAuthguard } from "./guard/startAuth.guard";
+import { WeatherComponent } from "./weather/weather.component";
 
 export const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "sign-up" },
-  { path: "sign-up", component: SignUpComponent },
   {
     path: "",
     runGuardsAndResolvers: "always",
@@ -18,8 +18,15 @@ export const routes: Routes = [
     children: [
       { path: "user-update", component: UserUpdateComponent },
       { path: "user-details/:id", component: UserDetailsComponent },
-      { path: "user-list", component: UserListComponent }
+      { path: "user-list", component: UserListComponent },
+      { path: "weather", component: WeatherComponent }
     ]
+  },
+  {
+    path: "",
+    canActivate: [StartAuthguard],
+    runGuardsAndResolvers: "always",
+    children: [{ path: "sign-up", component: SignUpComponent }]
   }
 ];
 

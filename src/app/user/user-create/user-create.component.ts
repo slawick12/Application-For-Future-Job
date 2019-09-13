@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
-import { RestApiService } from "src/app/_services/rest-api.service";
+
 import { AlertifyService } from "src/app/_services/alertify.service";
 
 @Component({
@@ -18,24 +18,22 @@ export class UserCreateComponent implements OnInit {
   };
 
   constructor(
-    private restApi: RestApiService,
-    private router: Router,
-    private alertify: AlertifyService
+
   ) {}
 
   ngOnInit() {}
 
-  addUser() {
-    this.restApi.createUser(this.userDetails).subscribe(
-      () => {
-        this.alertify.success("Create user");
-        this.router.navigate(["/user-list"]);
-      },
-      () => {
-        () => {
-          this.alertify.error("There are some problem");
-        };
-      }
-    );
-  }
+  // addUser() {
+  //   this.restApi.createUser(this.userDetails).subscribe(
+  //     () => {
+  //       this.alertify.success("Create user");
+  //       this.router.navigate(["/user-list"]);
+  //     },
+  //     () => {
+  //       () => {
+  //         this.alertify.error("There are some problem");
+  //       };
+  //     }
+  //   );
+  // }
 }
