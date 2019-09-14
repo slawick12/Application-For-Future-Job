@@ -29,10 +29,6 @@ export class SignUpComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private alertify: AlertifyService,
-    private router: Router,
-    private firebaseAuth: AngularFireAuth,
-    private fb: FormBuilder,
-    private firestore: AngularFirestore
   ) {
     this.registerForm = new FormGroup({
       email: new FormControl(Validators.required),
@@ -51,7 +47,7 @@ export class SignUpComponent implements OnInit {
       },
       err => {
         console.log(err);
-        this.handleError(err);
+        this.authService.handleError(err);
       }
     );
   }
@@ -59,7 +55,7 @@ export class SignUpComponent implements OnInit {
     this.authService.loginWithGoogle().subscribe(
       null,
       error => {
-        this.handleError(error);
+        this.authService.handleError(error);
       },
       () => this.alertify.success("Succsesfully sign in with Google")
     );
@@ -78,16 +74,5 @@ export class SignUpComponent implements OnInit {
     this.userDetails.password = this.randomPassword(15);
   }
 
-  handleError(error) {
-    let errorMessage;
-    if (error instanceof ErrorEvent) {
-      //error on client-side
-      errorMessage = error;
-    } else {
-      //error on server-side
-      errorMessage = `${error.message}`;
-    }
-    this.alertify.error(errorMessage);
-    return throwError(errorMessage);
-  }
+  
 }

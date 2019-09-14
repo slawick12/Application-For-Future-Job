@@ -8,6 +8,7 @@ import { SignUpComponent } from "./sign-up/sign-up.component";
 import { AuthGuard } from "./guard/auth.guard";
 import { StartAuthguard } from "./guard/startAuth.guard";
 import { WeatherComponent } from "./weather/weather.component";
+import { SignInComponent } from './sign-in/sign-in.component';
 
 export const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "sign-up" },
@@ -26,7 +27,10 @@ export const routes: Routes = [
     path: "",
     canActivate: [StartAuthguard],
     runGuardsAndResolvers: "always",
-    children: [{ path: "sign-up", component: SignUpComponent }]
+    children: [
+      { path: "sign-up", component: SignUpComponent },
+      { path: "sign-in", component: SignInComponent }
+    ]
   }
 ];
 

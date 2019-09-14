@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { UserService } from 'src/app/_services/user.service';
 
 
 
@@ -10,23 +11,11 @@ import { Component, OnInit } from "@angular/core";
 export class UserListComponent implements OnInit {
   User: any = [];
 
-  constructor() {}
+  constructor(private userService:UserService) {}
 
   ngOnInit() {
   }
 
-  //get list of users
-  // getListOfUsers() {
-  //   return this.restApi.getUsers().subscribe((data: {}) => {
-  //     this.User = data;
-  //   });
-  // }
-  // deleteUser(id){
-  //   if (window.confirm('Are you sure, you want to delete?')){
-  //     this.restApi.deleteUser(id).subscribe(data => {
-  //       this.getListOfUsers()
-  //     })
-  //   }
-  // }
+  
 }
 

@@ -24,8 +24,7 @@ export class UserHelper {
       country: '',
       name: nameAndSurname[0],
       surname: nameAndSurname[1],
-      email: decodedToken.email,
-      password:decodedToken.password
+      email: decodedToken.email
     };
   }
 
@@ -36,7 +35,7 @@ export class UserHelper {
       name: userDto.name,
       surname: userDto.surname,
       email: userDto.email,
-      password:userDto.password
+      password:userDto.password,
     };
   }
 

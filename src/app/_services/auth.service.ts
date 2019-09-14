@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { User } from "../_modules/user";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
-import { Observable, from } from "rxjs";
+import { Observable, from, throwError } from "rxjs";
 import * as firebase from "firebase/app";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { map } from "rxjs/operators";
@@ -9,6 +9,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { UserService } from "./user.service";
 import { Router } from "@angular/router";
 import { UserHelper } from "../Dtos/user.helper";
+import { AlertifyService } from './alertify.service';
 
 @Injectable({
   providedIn: "root"
@@ -21,7 +22,8 @@ export class AuthService {
     private authServiceFirebase: AngularFireAuth,
     private userService: UserService,
     private router: Router,
-    private userHelper: UserHelper
+    private userHelper: UserHelper,
+    private alertify:AlertifyService
   ) {}
 
   public loginWithGoogle() {
@@ -30,7 +32,11 @@ export class AuthService {
       this.authServiceFirebase.auth.signInWithPopup(provider)
     );
   }
-
+  public loginWithEmail(email: string, password: string) {
+    return this.getObservableAndSetToken(
+      this.authServiceFirebase.auth.signInWithEmailAndPassword(email, password)
+    );
+  }
   doRegister(obj: any) {
     console.log(obj);
     return this.getObservableAndSetToken(
@@ -80,5 +86,17 @@ export class AuthService {
         }
       });
     }
+  }
+  handleError(error) {
+    let errorMessage;
+    if (error instanceof ErrorEvent) {
+      //error on client-side
+      errorMessage = error;
+    } else {
+      //error on server-side
+      errorMessage = `${error.message}`;
+    }
+    this.alertify.error(errorMessage);
+    return throwError(errorMessage);
   }
 }
