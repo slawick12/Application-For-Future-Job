@@ -34,7 +34,7 @@
             <td>{{user.password}}</td>
             <td>
               <!-- <span class="edit" routerLink="/employee-edit/{{employee.id}}">Edit</span> --> 
-               <span class="delete" (click)="deleteUser()">Delete</span>
+               <span class="delete" (click)="deleteUser(user.id)">Delete</span>
             </td>
           </tr>
         </tbody>

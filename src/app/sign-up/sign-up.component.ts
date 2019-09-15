@@ -19,8 +19,8 @@ import { AngularFirestore } from "@angular/fire/firestore";
   styleUrls: ["./sign-up.component.css"]
 })
 export class SignUpComponent implements OnInit {
-  userDetails:any = {};
-  
+  userDetails: any = {};
+
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   successMessage: string;
   errorMessage: string;
@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private alertify: AlertifyService,
+    private alertify: AlertifyService
   ) {
     this.registerForm = new FormGroup({
       email: new FormControl(Validators.required),
@@ -40,6 +40,7 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {}
 
   tryRegister() {
+    this.userDetails.role = "user";
     this.authService.doRegister(this.userDetails).subscribe(
       user => {
         console.log(user);
@@ -73,6 +74,4 @@ export class SignUpComponent implements OnInit {
   generate() {
     this.userDetails.password = this.randomPassword(15);
   }
-
-  
 }

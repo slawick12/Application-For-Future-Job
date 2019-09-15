@@ -16,6 +16,7 @@ import { AlertifyService } from './alertify.service';
 })
 export class AuthService {
   decodedToken: any;
+  
   private jwtHelper: JwtHelperService = new JwtHelperService();
   constructor(
     private authServiceFirebase: AngularFireAuth,
@@ -24,6 +25,9 @@ export class AuthService {
     private userHelper: UserHelper,
     private alertify:AlertifyService
   ) {}
+  isAdmin(){
+    return this.decodedToken.user.role =="admin"
+  }
 
   public loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -63,7 +67,7 @@ export class AuthService {
           value.user.getIdToken(true).then(token => {
             localStorage.setItem("token", token);
             this.decodedToken = this.jwtHelper.decodeToken(token);
-            console.log(obj);
+            console.log("object", obj);
             this.setInitialSettings(obj);
           });
         }

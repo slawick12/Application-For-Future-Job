@@ -6,9 +6,5 @@ export interface User {
   country: string;
   email: string;
   password?: string;
-  role?:Role
-}
-export interface Role {
-  admin?: boolean;
-  subscribe?: boolean;
+  role?:string
 }

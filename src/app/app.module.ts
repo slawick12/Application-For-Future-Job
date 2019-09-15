@@ -26,6 +26,7 @@ import { AuthGuard } from "./guard/auth.guard";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { WeatherComponent } from "./weather/weather.component";
 import { SignInComponent } from './sign-in/sign-in.component';
+import { AdminGuard } from './guard/admin.guard';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     AuthGuard,
     StartAuthguard,
     WeatherService,
-    AlertifyService
+    AlertifyService,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })

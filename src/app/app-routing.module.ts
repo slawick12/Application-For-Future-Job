@@ -9,6 +9,7 @@ import { AuthGuard } from "./guard/auth.guard";
 import { StartAuthguard } from "./guard/startAuth.guard";
 import { WeatherComponent } from "./weather/weather.component";
 import { SignInComponent } from './sign-in/sign-in.component';
+import { AdminGuard } from './guard/admin.guard';
 
 export const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "sign-up" },
@@ -30,6 +31,14 @@ export const routes: Routes = [
     children: [
       { path: "sign-up", component: SignUpComponent },
       { path: "sign-in", component: SignInComponent }
+    ]
+  },
+  {
+    path: "",
+    canActivate: [AdminGuard],
+    runGuardsAndResolvers: "always",
+    children: [
+      { path: "user-list", component: UserListComponent }
     ]
   }
 ];
