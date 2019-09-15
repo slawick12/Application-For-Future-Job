@@ -17,7 +17,6 @@ import { AlertifyService } from './alertify.service';
 export class AuthService {
   decodedToken: any;
   private jwtHelper: JwtHelperService = new JwtHelperService();
-
   constructor(
     private authServiceFirebase: AngularFireAuth,
     private userService: UserService,
@@ -71,8 +70,9 @@ export class AuthService {
       })
     );
   }
-  private setInitialSettings(obj: any) {
+  public setInitialSettings(obj: any) {
     const user_id: string = this.decodedToken.user_id;
+    console.log("userId"+ user_id)
     if (this.isLoggedIn()) {
       this.userService.getUser(user_id).subscribe(data => {
         if (data) {
@@ -84,7 +84,8 @@ export class AuthService {
           );
           this.router.navigate(["/weather"]);
         }
-      });
+      })
+      this.userService.deleteUser(user_id)
     }
   }
   handleError(error) {

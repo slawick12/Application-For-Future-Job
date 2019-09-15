@@ -30,4 +30,7 @@ export class UserService {
       obj
     );
   }
+  deleteUser(id:string){
+    return this.firestore.collection("Users").doc(id).delete()
+  }
 }
