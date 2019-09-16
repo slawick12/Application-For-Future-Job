@@ -20,7 +20,6 @@ export const routes: Routes = [
     children: [
       { path: "user-update", component: UserUpdateComponent },
       { path: "user-details/:id", component: UserDetailsComponent },
-      { path: "user-list", component: UserListComponent },
       { path: "weather", component: WeatherComponent }
     ]
   },
@@ -34,12 +33,10 @@ export const routes: Routes = [
     ]
   },
   {
-    path: "",
+    path: "user-list",
     canActivate: [AdminGuard],
     runGuardsAndResolvers: "always",
-    children: [
-      { path: "user-list", component: UserListComponent }
-    ]
+    component: UserListComponent
   }
 ];
 

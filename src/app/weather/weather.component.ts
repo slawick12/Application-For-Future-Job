@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { WeatherService } from '../_services/weather.service';
 import { HttpParams } from '@angular/common/http';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-weather',
@@ -12,9 +13,10 @@ export class WeatherComponent implements OnInit {
 lat;
 lon;
 weather;
-  constructor(private weatherSerivice: WeatherService) {}
+  constructor(private weatherSerivice: WeatherService, private userService:UserService) {}
   ngOnInit() {
       this.getLocation()
+      this.userService.downloadUserInfo()
     }
     
     getLocation(){

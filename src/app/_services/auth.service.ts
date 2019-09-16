@@ -26,6 +26,7 @@ export class AuthService {
     private alertify:AlertifyService
   ) {}
   isAdmin(){
+    console.log(this.decodedToken)
     return this.decodedToken.user.role =="admin"
   }
 
@@ -41,7 +42,6 @@ export class AuthService {
     );
   }
   doRegister(obj: any) {
-    console.log(obj);
     return this.getObservableAndSetToken(
       firebase.auth().createUserWithEmailAndPassword(obj.email, obj.password),
       obj
@@ -54,6 +54,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("userData");
     return this.authServiceFirebase.auth.signOut();
   }
 
@@ -67,7 +68,6 @@ export class AuthService {
           value.user.getIdToken(true).then(token => {
             localStorage.setItem("token", token);
             this.decodedToken = this.jwtHelper.decodeToken(token);
-            console.log("object", obj);
             this.setInitialSettings(obj);
           });
         }
@@ -76,7 +76,6 @@ export class AuthService {
   }
   public setInitialSettings(obj: any) {
     const user_id: string = this.decodedToken.user_id;
-    console.log("userId"+ user_id)
     if (this.isLoggedIn()) {
       this.userService.getUser(user_id).subscribe(data => {
         if (data) {
@@ -89,7 +88,6 @@ export class AuthService {
           this.router.navigate(["/weather"]);
         }
       })
-      this.userService.deleteUser(user_id)
     }
   }
   handleError(error) {

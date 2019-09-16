@@ -27,6 +27,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { WeatherComponent } from "./weather/weather.component";
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AdminGuard } from './guard/admin.guard';
+import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AdminGuard } from './guard/admin.guard';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    JwtModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -65,7 +67,8 @@ import { AdminGuard } from './guard/admin.guard';
     StartAuthguard,
     WeatherService,
     AlertifyService,
-    AdminGuard
+    AdminGuard,
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

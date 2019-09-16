@@ -3,24 +3,23 @@ import { Observable, from } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map, subscribeOn } from 'rxjs/operators';
 import { User } from '../_modules/user';
-import { resolve } from 'q';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private jwtHelper: JwtHelperService = new JwtHelperService();
   constructor(private firestore: AngularFirestore) {}
 
   getUser(id: string): Observable<any> {
     return this.firestore.collection('Users').doc(id).get().pipe(map(data =>  data.data()));
   }
-isAdmin(id:string){
-  return new Promise<any>((resolve,reject)=>{
-this.getUser(id).subscribe((user)=>{
-  resolve(user.role == "admin")
-})
-  })
-}
+  isCurrentUserAdmin(){
+    console.log("role",JSON.parse(localStorage.getItem("userData")).role);
+    return JSON.parse(localStorage.getItem("userData")).role == "admin"
+  }
   getAllUsers(): Observable<any> {
     const list: User[] = [];
     return this.firestore.collection('Users').get().pipe(map( (data) => {
@@ -30,6 +29,16 @@ this.getUser(id).subscribe((user)=>{
   }
   setUser(id: string, user: User): Observable<any> {
     return from(this.firestore.collection('Users').doc(id).set(user));
+  }
+
+  downloadUserInfo(){
+    let user_id = this.jwtHelper.decodeToken(localStorage.getItem("token")).user_id
+    console.log(user_id);
+    this.getUser(user_id).subscribe(userData=>{
+      console.log("data:",userData);
+      localStorage.setItem("userData",JSON.stringify(userData))
+    })
+    
   }
 
   modifyUserField(id: string, obj: {}) {

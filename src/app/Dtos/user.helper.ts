@@ -29,7 +29,14 @@ export class UserHelper {
   }
 
   private initializeStandardUser(userDto: any): User {
-    return  userDto
+    return {
+      name:userDto.name,
+      surname:userDto.surname,
+      city:userDto.city,
+      country:userDto.country,
+      email:userDto.email,
+      role:userDto.role
+    }
   }
 
 
