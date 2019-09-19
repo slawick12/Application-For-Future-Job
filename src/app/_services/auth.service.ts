@@ -26,7 +26,7 @@ export class AuthService {
     private alertify:AlertifyService
   ) {}
   isAdmin(){
-    console.log(this.decodedToken)
+
     return this.decodedToken.user.role =="admin"
   }
 

@@ -44,7 +44,7 @@ export class SignUpComponent implements OnInit {
     this.userDetails.role = "user";
     this.authService.doRegister(this.userDetails).subscribe(
       user => {
-        console.log(user);
+
         this.alertify.success("Succsesfully registered!");
       },
       err => {
