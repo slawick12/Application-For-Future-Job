@@ -24,11 +24,10 @@ export class AdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    console.log("SLAVIK LOXLOL");
     
     if (!this.userService.isCurrentUserAdmin()) {
       this.alertifyService.warning("You have no permission to visit this page");
-      //   this.router.navigateByUrl("/sign-up");
+      this.router.navigateByUrl("/user-list");
       return false;
     }
     return true;

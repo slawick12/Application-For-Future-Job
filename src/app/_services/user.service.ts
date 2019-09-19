@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map, subscribeOn } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { User } from '../_modules/user';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { JsonPipe } from '@angular/common';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private jwtHelper: JwtHelperService = new JwtHelperService();
-  constructor(private firestore: AngularFirestore) {}
+   
+  constructor(private firestore: AngularFirestore
+  ) {}
 
   getUser(id: string): Observable<any> {
     return this.firestore.collection('Users').doc(id).get().pipe(map(data =>  data.data()));
   }
   isCurrentUserAdmin(){
-    console.log("role",JSON.parse(localStorage.getItem("userData")).role);
     return JSON.parse(localStorage.getItem("userData")).role == "admin"
   }
+
   getAllUsers(): Observable<any> {
     const list: User[] = [];
     return this.firestore.collection('Users').get().pipe(map( (data) => {
@@ -38,15 +40,8 @@ export class UserService {
       console.log("data:",userData);
       localStorage.setItem("userData",JSON.stringify(userData))
     })
-    
   }
-
-  modifyUserField(id: string, obj: {}) {
-    this.firestore.collection('Users').doc(id).update(
-      obj
-    );
-  }
-  deleteUser(id:string){
-    return this.firestore.collection("Users").doc(id).delete()
+  modifyUserField(id,obj:{}): Observable<any>{
+    return from(this.firestore.collection("Users").doc(id).update(obj))
   }
 }

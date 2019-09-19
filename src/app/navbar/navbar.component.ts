@@ -3,6 +3,7 @@ import { AuthService } from "../_services/auth.service";
 import { AlertifyService } from "../_services/alertify.service";
 import { Router } from "@angular/router";
 import { User } from '../_modules/user';
+import { UserService } from '../_services/user.service';
 
 
 @Component({
@@ -18,10 +19,12 @@ export class NavbarComponent implements OnInit {
   constructor(
     public authSevice: AuthService,
     private alertify: AlertifyService,
-    private router: Router
+    private router: Router,
+    private userService:UserService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   
   loggedIn() {
@@ -31,5 +34,8 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem("token");
     this.alertify.message("logged out");
     this.router.navigate(['/sign-up'])
+  }
+  isAdmin(){
+    return this.userService.isCurrentUserAdmin()
   }
 }

@@ -32,6 +32,7 @@
     "jquery": "^3.4.1",
     "jwthelper": "0.0.4",
     "ngx-bootstrap": "^3.0.1",
+    "ngx-tabset": "^2.1.0",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

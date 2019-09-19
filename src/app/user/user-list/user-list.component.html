@@ -14,7 +14,6 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-              <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Surname</th>
             <th scope="col">Email</th>
@@ -25,17 +24,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let user of model">
-            <td>{{user.id}}</td>
             <td>{{user.name}}</td>
             <td>{{user.surname}}</td>
             <td>{{user.email}}</td>
             <td>{{user.country}}</td>
             <td>{{user.city}}</td>
             <td>{{user.password}}</td>
-            <td>
-              <!-- <span class="edit" routerLink="/employee-edit/{{employee.id}}">Edit</span> --> 
-               <span class="delete" (click)="deleteUser(user.id)">Delete</span>
-            </td>
           </tr>
         </tbody>
       </table>

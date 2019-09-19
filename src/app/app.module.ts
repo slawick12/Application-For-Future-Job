@@ -11,7 +11,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AlertifyService } from "./_services/alertify.service";
 import { AuthService } from "./_services/auth.service";
 import { UserService } from "./_services/user.service";
-import { BsDropdownModule } from "ngx-bootstrap";
+import { BsDropdownModule, TabsModule } from "ngx-bootstrap";
 import { AgmCoreModule } from "@agm/core";
 import { WeatherService } from "./_services/weather.service";
 
@@ -48,6 +48,7 @@ import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
     FormsModule,
     JwtModule,
     ReactiveFormsModule,
+    TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,

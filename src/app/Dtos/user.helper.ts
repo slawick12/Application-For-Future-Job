@@ -20,6 +20,7 @@ export class UserHelper {
   private initializeFacebookGoogleUser(decodedToken: any): User {
     const nameAndSurname: string = decodedToken.name.split(' ');
     return {
+      id:"",
       city: '',
       country: '',
       name: nameAndSurname[0],
@@ -30,6 +31,7 @@ export class UserHelper {
 
   private initializeStandardUser(userDto: any): User {
     return {
+      id:userDto.id,
       name:userDto.name,
       surname:userDto.surname,
       city:userDto.city,
