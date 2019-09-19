@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { throwError, from, Observable } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: "app-sign-up",
@@ -48,7 +49,7 @@ export class SignUpComponent implements OnInit {
       },
       err => {
         console.log(err);
-        this.authService.handleError(err);
+        this.authService.handleError(err)
       }
     );
   }

@@ -1,21 +1,15 @@
 <div class="main">
   <div class="container">
     <div class="row justify-content-center main_block">
-      <div class="col-xs-8 col-sm-10 center-container pl-4 pr-4 ">
-        <div class="icons-container">
-          <ul class="list-inline">
-            <li class="list-inline-item" (click)="authWithGoogle()"><i
-                class="fa fa-google-plus-square fa-2x google-plus-style" aria-hidden="true"></i></li>
-          </ul>
-        </div>
-        <div class="text-center mt-3 login">
-          <h1>Log in</h1>
-          <p class="text-uppercase mt-4">Weather <a class="text-warning a-hovered" [routerLink]="['/sign-up']" routerLinkActive="router-link-active" >Sign up for free</a>
+      <div class="col-xs-8 col-sm-10 col-md-8 center-container pl-4 pr-4 ">
+        <div class="text-center text-primary mt-4">
+          <h2>Log in</h2>
+          <p class="text-uppercase mt-4 text-center text-success">Weather <a class="text-danger a-hovered ml-2" [routerLink]="['/sign-up']" routerLinkActive="router-link-active" >Sign up for free</a>
           </p>
         </div>
         <form #loginModule="ngForm" (ngSubmit)="loginWithEmail()">
           <div class="form-group">
-            <label for="exampleInputEmail" class="col-form-lable-lg">Email</label>
+            <label for="exampleInputEmail" class="col-form-label-lg">Email</label>
             <div class="input-group group-with-icon">
               <input type="text" class="form-control form-control-lg inputCustom" id="exampleInputEmail
               " aria-describedby="emailHelp" placeholder="Enter email" name="email" [(ngModel)]="userDetail.email">
@@ -37,12 +31,10 @@
             </div>
           </div>
           <div class="form-group text-center">
-            <button type="submit" class="btn btn-success button-custom-style font-weigth-bold">Log in</button>
+            <button  class="btn btn-success button-custom-style font-weight-bold mt-3 mr-3" (click)="loginWithEmail()">Log in</button>
+            <button (click)="authWithGoogle() " class="btn btn-danger  mt-3">Google</button>
           </div>
         </form>
-        <div class="text-center mb-3">
-          <p><a class="text-uppercase text-warning a-hovered">Forgot your password?</a></p>
-        </div>
       </div>
     </div>
   </div>

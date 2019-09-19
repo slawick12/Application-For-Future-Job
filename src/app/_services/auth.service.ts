@@ -4,7 +4,7 @@ import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Observable, from, throwError } from "rxjs";
 import * as firebase from "firebase/app";
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { map } from "rxjs/operators";
+import { map, retry, catchError } from "rxjs/operators";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { UserService } from "./user.service";
 import { Router } from "@angular/router";
@@ -45,7 +45,7 @@ export class AuthService {
     return this.getObservableAndSetToken(
       firebase.auth().createUserWithEmailAndPassword(obj.email, obj.password),
       obj
-    );
+    )
   }
 
   isLoggedIn(): boolean {
@@ -90,16 +90,17 @@ export class AuthService {
       })
     }
   }
+
   handleError(error) {
-    let errorMessage;
-    if (error instanceof ErrorEvent) {
-      //error on client-side
-      errorMessage = error;
+    let errorMessage = '';
+    if(error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.message;
     } else {
-      //error on server-side
-      errorMessage = `${error.message}`;
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     this.alertify.error(errorMessage);
     return throwError(errorMessage);
-  }
+ }
 }

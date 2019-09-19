@@ -1,110 +1,79 @@
 .main {
-    width: 100%;
-    min-height: 100vh;
-    background-image: url('https://images.pexels.com/photos/164005/pexels-photo-164005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('https://images.pexels.com/photos/2662212/pexels-photo-2662212.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.inputCustom {
+  background: rgba(255, 255, 255, 0.712);
+}
+
+.group-with-icon {
+  position: relative;
+}
+
+.group-with-icon input[type='text'],
+.group-with-icon input[type='password'] {
+  padding-left: 40px;
+}
+
+.group-with-icon i {
+  position: absolute;
+  left: 0;
+  bottom: 35%;
+  padding-left: 15px;
+  z-index: 1000;
+}
+
+.center-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.712);
+  border-radius: 10px;
+}
+p {
+  letter-spacing: 0.0625em;
+  font-size: 15px;
+}
+
+a.a-hovered:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .fa-2x {
+    font-size: 3em;
   }
-  .inputCustom {
-    background: rgba(255, 255, 255, 1);
+}
+
+@media screen and (max-width: 992px) {
+  .fa-2x {
+    font-size: 35px;
   }
-  
-  .group-with-icon {
-    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .login {
+    text-align: -webkit-left !important;
   }
-  
-  .group-with-icon input[type='text'],
-  .group-with-icon input[type='password'] {
-    padding-left: 40px;
+
+  .fa-2x {
+    font-size: 38px;
   }
-  
-  .group-with-icon i {
-    position: absolute;
-    left: 0;
-    bottom: 35%;
-    padding-left: 15px;
-    z-index: 1000;
+}
+
+@media screen and (max-width: 576px) {
+  .main_block {
+    margin-left: -8px;
+    margin-right: -8px;
   }
-  
-  .center-container {
-    position: relative;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
+
+  .fa-2x {
+    font-size: 28px;
   }
-  
-  .icons-container {
-    position: absolute;
-    top: 2%;
-    right: 3%;
-  }
-  
-  .icons-container .facebook-style {
-    color: rgb(60, 90, 153);
-  }
-  
-  .icons-container .google-plus-style {
-    color: rgb(178, 34, 34);
-  }
-  
-  .icons-container .twitter-style {
-    color: rgb(56, 161, 243);
-  }
-  
-  .icons-container li:hover {
-    transform: scale(1.3, 1.3);
-  }
-  
-  .icons-container li {
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
-  }
-  
-  .button-custom-style {
-    width: 70%;
-    font-size: 20px;
-    border-radius: 10px !important;
-  }
-  p {
-    letter-spacing: 0.0625em;
-    font-size: 15px;
-  }
-  
-  a.a-hovered:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  @media screen and (max-width: 1200px) {
-    .fa-2x {
-      font-size: 3em;
-    }
-  }
-  @media screen and (max-width: 992px) {
-    .fa-2x {
-      font-size: 35px;
-    }
-  }
-  @media screen and (max-width: 768px) {
-    .login{
-      text-align: -webkit-left!important;
-      }
-    .fa-2x {
-      font-size: 38px;
-    }
-  }
-  @media screen and (max-width: 576px) {
-    .icons-container{
-      top:4%;
-    }
-    .main_block{
-      margin-left: -8px;
-      margin-right: -8px;
-    }
-    .fa-2x{
-      font-size: 28px;
-  } 
-  }
-  
-  
+}

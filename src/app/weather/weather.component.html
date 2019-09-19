@@ -1,11 +1,10 @@
 <div class="row">
-  <div class="col-md-6 offset-md-3">
+  <div class="col-md-8 offset-md-2 ">
     <div class="col-sm-12 text-center">
-
       <div class="input-group mt-5">
         <input type="text" class="form-control" #userInput placeholder="Enter city">
         <div class="input-group-append">
-          <button class="input-group-text btn btn-outline-primary" (click)="getCity(userInput.value)">Search
+          <button class="btn btn-success" (click)="getCity(userInput.value)">Search
             City</button>
         </div>
       </div>
@@ -20,7 +19,7 @@
       </span>
       <p class="text-uppercase font-italic font-weight-bold">{{weather?.weather[0].description}}</p>
     </div>
-    <table class="table table-ligth table-striped table-bordered table-sm">
+    <table class="table table-ligth table-striped table-bordered table-sm text-uppercase">
       <tbody>
         <tr>
           <td>Wilgotność</td>
